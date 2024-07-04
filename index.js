@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const User = require("./model/User.js");
+const User = require("./routes/User");
 // const Subject = require("./routes/Subject.js");
 
 dotenv.config();
@@ -20,9 +20,14 @@ mongoose
 
 app.use(cors());
 app.use(express.json());
+app.use("/users", User);
 
-app.get("/", async (req, res) => {
-  res.status(200).send("<h1>Hello World ahihi Thao</h1>");
+app.get("/", (req, res) => {
+  try {
+    res.status(200).send("hello");
+  } catch (err) {
+    res.status(500);
+  }
 });
 
 app.listen(PORT, () => {
