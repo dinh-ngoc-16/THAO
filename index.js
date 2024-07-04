@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", async (req, res) => {
-  res.status(200).send("<h1>Hello World</h1>");
+  res.status(200).send("<h1>Hello World ahihi</h1>");
 });
 
 app.listen(PORT, () => {
