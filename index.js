@@ -28,7 +28,6 @@ app.get("/health", (req, res) => {
     message: "Ok",
     date: new Date(),
   };
-  console.log("health check: ", JSON.stringify(data));
   res.status(200).send(data);
 });
 
