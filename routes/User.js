@@ -3,6 +3,7 @@ const User = require("../model/User");
 
 router.get("/", async (req, res) => {
   const data = await User.find();
+  console.log("responese: ", JSON.stringify(data));
   res.status(200).send(data);
 });
 

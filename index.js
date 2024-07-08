@@ -22,12 +22,14 @@ app.use(cors());
 app.use(express.json());
 app.use("/users", User);
 
-app.get("/", (req, res) => {
-  try {
-    res.status(200).send("hello");
-  } catch (err) {
-    res.status(500);
-  }
+app.get("/health", (req, res) => {
+  const data = {
+    uptime: process.uptime(),
+    message: "Ok",
+    date: new Date(),
+  };
+  console.log("health check: ", JSON.stringify(data));
+  res.status(200).send(data);
 });
 
 app.listen(PORT, () => {
