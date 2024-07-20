@@ -21,10 +21,9 @@ router.post("/signup", async (req, res) => {
   const user = new User({
     username: req.body.username,
     mail: req.body.mail,
-    phone: req.body.phone,
+    gender: req.body.gender,
     pass: CryptoJS.AES.encrypt(req.body.pass, process.env.PASS_SEC).toString(),
   });
-
   try {
     const saveUser = await user.save();
     console.log(JSON.stringify(saveUser));
