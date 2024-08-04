@@ -41,7 +41,7 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
     if (!user) {
-      res.status(401).json("Wrong credentials!");
+      res.status(401).json({ error: "Login failed, acount does not exist" });
       return;
     }
 
