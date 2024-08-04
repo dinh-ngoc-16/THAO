@@ -27,7 +27,7 @@ router.post("/signup", async (req, res) => {
   try {
     const saveUser = await user.save();
     console.log(JSON.stringify(saveUser));
-    res.status(200).json(saveUser);
+    res.status(201).json(saveUser);
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
