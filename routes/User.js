@@ -53,7 +53,7 @@ router.post("/login", async (req, res) => {
     const OriginalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
 
     if (OriginalPassword !== req.body.pass) {
-      res.status(401).json("Wrong credentials!");
+      res.status(401).json({ error: "Login failed, acount does not exist" });
       return;
     }
     const accessToken = jwt.sign(
